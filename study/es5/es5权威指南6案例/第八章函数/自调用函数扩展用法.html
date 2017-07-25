@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript">
+	
+
+
+
+(function (window){var a=1; console.log(a) })(window);
+ //自动用函数不止尅这样调用。同样可以下面的方式通过call,aplly间接调用. 或是通过bind绑定this返回新函数.
+ //call,aplly,bind 方法调用匿名函数
+var animals = [
+  {species: 'Lion', name: 'King'},
+  {species: 'Whale', name: 'Fail'}
+];
+
+for (var i = 0; i < animals.length; i++) {
+  (function (i) { 
+    this.print = function () { 
+      console.log('#' + i  + ' ' + this.species + ': ' + this.name); 
+    } 
+    this.print();
+  }).call(animals[i], [i]); 			 // #0 Lion: King #1 Whale: Fail
+  // }).apply(animals[i], [i]);         // #0 Lion: King #1 Whale: Fail
+  // }).bind(animals[i], [i])();       // #0 Lion: King #1 Whale: Fail
+}
+
+</script>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+	<title>服务中心</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		
+		#container{
+			position: absolute;
+			width: 1485px;
+			height: 741px;
+			margin-left: -webkit-calc( (100% - 1485px) / 2 );
+			margin-left: -moz-calc( (100% - 1485px) / 2 );
+			margin-left: -o-calc( (100% - 1485px) / 2 );
+			margin-left: calc( (100% - 1485px) / 2 );
+			
+
+			/*left: 0;top: 0;bottom: 0;right: 0;*/
+			background: url(img/bg.png) no-repeat;
+			background-size: 100%;
+			background-position: center center;
+		}
+		#container img{
+			width: 30%;
+		}
+		#container p{
+			position: absolute;
+			width: 100%;
+			font-size: 60px;
+			text-align:center;
+			font-weight: bold;
+			color: #0f7197;
+			bottom: -65px
+		}
+
+		span{
+			position: absolute;
+			top: -180px;
+		}
+		@media screen and (max-width: 700px){
+			
+			
+		}
+	</style>
+	<script>
+		var screenWidth = window.screen.width;
+		if(screenWidth < 1000){
+			window.location.assign("./loginMo.html");
+		}
+	</script>
+</head>
+<body>
+	<div id="container">
+		<!-- <span><img src="img/icon.png" alt=""></span> -->
+		<p>上海学而思培优服务中心</p>
+	</div>
+
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script>
+		$(function(){
+			//top:30%~70%
+			//left:20~60
+			var num=0 , time , seconds = 100;
+
+			for(var i=0;i<30;i++){
+			var ranLeft = Math.floor(Math.random()*40+30); //left: 随机数产生 10-85
+				$("#container").append("<span style='left:"+ranLeft+"%'><img src='img/icon.png' ></span>");
+			}
+
+			window.onload = function(){
+				icon();
+				if(num>=30){
+					clearTimeout(time);
+				}
+				setTimeout("window.location.assign('index.html')", 3500);
+			}
+
+			function icon(){
+				var ranTop = Math.floor(Math.random()*39+20); //top: 随机数产生 30-72
+				$("#container>span").eq(num).animate({'top':''+ranTop+'%'} , { duration:1000,easing:'easeInOutCirc' });
+				num++;
+				seconds = seconds-2;
+				time = setTimeout(icon,seconds);
+				
+			}
+
+		})
+	</script>
+</body>
+</html>

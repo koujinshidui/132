@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript">
+	
+	var  whenReady=(function(){ //返回这whenReady函数
+		var fucs=[]; //当获得事件，要运行的函数
+		var ready =false; //当触发事件处理程序时，切换到true；
+		// 当文档准备就绪时，调用处理程序
+		function handler(e){
+       // 如果已经运行过一次，只需要返回
+       if(ready) return; 
+       // 如过发生 readystatechange 事件。
+       // 但其状态不是"complete"的话，那么文档尚未准备好
+       if(e.type==="readystatechange" && doucment.readyState!=="complete") return;
+       // 运行所有注册函数
+       // 注意每次都要计算funcs.length
+       // 以防这些函数的调用可能会导致注册更多的函数
+       for(var i=0;i<funcs.length;i++)
+       	funcs.[i].call(document);
+       	//现在设置ready标识为 true;并移除所有函数
+       	ready =true;
+       	funcs=null;
+
+       }
+       // 为接收到的任何事件注册处理程序
+       if(document.addEventListener){
+       	doucment.addEventListener('DOMContentLoaded',handler,false);
+       	doucment.addEventListener('readystatechange',handler,false);
+       	window.addEventListener('load',handler,false);
+       }else if(doucment.attachEvent){
+        document.attachEvent("onreadystatechange",handler);
+        window.attachEvent("onload",handler);
+       }
+
+
+   // 返回whenReady函数
+    return function whenReady(f){
+         if(ready) f.call(document) //若准备完毕，只需要运行它
+         else funcs.push(f);  //否则，加入队列等候;	
+
+    }
+	}())
+</script>

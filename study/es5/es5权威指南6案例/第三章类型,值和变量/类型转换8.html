@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript">
+//类型转换扩展number扩展函数方法
+'use strict'
+let a=1234.5678;
+console.log(a.toFixed(3)); //根据小数点后指定的位数将数字转化为字符串
+console.log(typeof a.toFixed(3)); 
+console.log(a.toExponential(2));//使用指数计数法将数字转化为字符串。小数点前只保留一位数字，小数点后的位数有参数指定。
+console.log(a.toPrecision(2));//根据指定的有效数字位数将数字转化为字符串。如果指定的有效数字位数少于整数部分，将转化为指数形式。反之不转化。
+console.log(a.toString(2))// toSting()方法中可传入参数表示要转化的进制。
+console.log(typeof a.toString(2))
+console.log(a.toString(8))//
+console.log(a.toString(16))//
+console.log(parseInt("20",16))// 可以接受第二个参数,第二个参数可以指定要转换的基数，表示对第一个参数是何种进制参数.
+parseFloat()
+</script>

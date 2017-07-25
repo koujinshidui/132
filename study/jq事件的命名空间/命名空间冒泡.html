@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>xxxxx</title>
+    <style type="text/css">
+        #parent {
+            margin: 100px auto 0 auto; width: 600px; height: 300px; border: 1px solid #ccc; position: relative;
+        }
+
+        #child {
+            margin: 0 0 0 300px; width: 300px; height: 300px; border: 1px solid #ccc; position: relative;
+        }
+
+        .log {
+            position: absolute; left: 0; width: 100%; height: 100%; overflow: auto;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        #btns {
+            margin: 20px auto 0 auto; width: 600px;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="./jquery-1.11.3.min.js"></script>
+<div id="parent">
+    <div class="log"></div>
+    <div id="child">
+        <div class="log"></div>
+    </div>
+</div>
+<div id="btns">
+    <button id="btn1" type="button" onclick="$c.trigger('hello.n1.n2.n3.n4');">trigger('hello.n1.n2.n3.n4')</button>
+    <button id="btn2" type="button" onclick="$c.trigger('hello.n1.n2.n3');">trigger('hello.n1.n2.n3')</button>
+    <button id="btn3" type="button" onclick="$c.trigger('hello.n1.n2');">trigger('hello.n1.n2')</button>
+    <button id="btn4" type="button" onclick="$c.trigger('hello.n1');">trigger('hello.n1')</button>
+    <button id="btn5" type="button" onclick="$c.trigger('hello');">trigger('hello')</button>
+</div>
+
+
+<div id="qq" style="width: 200px;height: 300px;background-color: red;"> 我是小明  <div id="pp" style="width: 100px;height: 30px;background-color: yellow;"> 我是小红</div></div>
+<script>
+
+$("#pp").on("click.ppp",function(event){
+       event.stopPropagation();
+       // $(this).trigger("click.ppp")
+console.log("我是小红")
+console.log(event)
+})
+$("#pp").on("click.xxxxx",function(event){
+       // event.stopPropagation();
+console.log("我是小红副本")
+})
+
+$("#qq").on("click.qqq",function(){
+    console.log("我是小明")
+})
+$("#qq").on("click.xxx",function(){
+    console.log("我是小明副本")
+})
+
+
+    function log($e, msg) {
+        var $log = $e.children('.log');
+        $log.append('<p>' + msg + '</p>');
+    }
+
+    var $p = $('#parent');
+
+    $p.on('hello.n1.n2.n3.n4', function(){
+        log($p, 'hello n1 n2 n3 n4');
+    });
+    $p.on('hello.n1.n2.n3', function(){
+        log($p, 'hello n1 n2 n3');
+    });
+    $p.on('hello.n1.n2', function(){
+        log($p, 'hello n1 n2');
+    });
+    $p.on('hello.n1', function(){
+        log($p, 'hello n1');
+    });
+    $p.on('hello', function(){
+        log($p, 'hello');
+    });
+
+    var $c = $('#child');
+
+    $c.on('hello.n1.n2.n3.n4', function(){
+        log($c, 'hello n1 n2 n3 n4');
+    });
+    $c.on('hello.n1.n2.n3', function(){
+        log($c, 'hello n1 n2 n3');
+    });
+    $c.on('hello.n1.n2', function(){
+        log($c, 'hello n1 n2');
+    });
+    $c.on('hello.n1', function(){
+        log($c, 'hello n1');
+    });
+    $c.on('hello', function(){
+        log($c, 'hello');
+    });
+
+</script>
+</body>
+</html>

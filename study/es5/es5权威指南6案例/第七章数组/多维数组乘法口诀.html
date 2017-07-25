@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<script type="text/javascript">
+ var table=new Array(10); // 表格有10行
+ for(var i=0;i<table.length;i++)	
+ 	table[i]=new Array(10);   //每行有10列
+ //初始化多维数组
+ for(var row=0;row<table.length; row++){
+ for(var col=0;col<table[row].length;col++){
+table[row][col]=row*col;
+ }
+ }
+
+var product=table[3][8];
+console.log(product);
+console.log(table);
+
+
+var a=[1,2,3,4,5,];
+console.log(a.splice(2,2,[1,2],3));
+	</script>
+</body>
+</html>

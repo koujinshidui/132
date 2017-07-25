@@ -1,0 +1,525 @@
+		div {
+		    box-sizing: border-box;
+		}
+		
+		body {
+		    font-family: "Microsoft YaHei", "宋体", "Segoe UI", "Lucida Grande", Helvetica, Arial, sans-serif;
+		    font-size: 10px;
+		}
+		
+		.container {
+		    position: relative;
+		    width: 80%;
+		    min-width: 1000px;
+		    /*margin: 0 auto;*/
+		    margin-top: 0;
+		    margin-bottom: 0;
+		    margin-right: auto;
+		    margin-left: -webkit-calc(10vw + 58px );
+		    margin-left: calc(10vw + 58px );
+		}
+		
+		.header {
+			position: relative;
+		    font-size: 1.3rem;
+		    font-weight: bolder;
+		    color: white;
+		    margin-left: 50px;
+		    display: inline-block;
+		    background: #e94609;
+		    padding: 15px 10px;
+		    -webkit-border-radius: 15px;
+		    border-radius: 15px;
+		    -webkit-box-shadow: 0 0 6px  #e94609;
+		     box-shadow: 0 0 6px  #e94609; 
+		}
+
+		.header::before{
+			content: '';
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 0;
+			top: 10px;
+			left: -47px;
+			z-index: 0;
+
+			border-top: 19px solid #f6ad3a; 
+			border-bottom: 19px solid #f6ad3a;
+			border-left: 15px solid transparent;
+			border-right: 32px solid #f6ad3a
+		}
+
+		.header::after{
+			content: '';
+			position: absolute;
+			display: block;
+			width: 0;
+			height: 0;
+			top: 10px;
+			right: -47px;
+			z-index: 0;
+			border-top: 19px solid #f6ad3a; 
+			border-bottom: 19px solid #f6ad3a;
+			border-left: 32px solid #f6ad3a;
+			border-right: 15px solid transparent
+		}
+		
+		.item {
+		    background: #f3f1dd;
+		    padding: 20px 0 20px 50px;
+		    margin: 20px 0;
+		}
+		
+		.item .content {
+		    position: relative;
+		    padding-left: 20px;
+		}
+		
+		ul>li {
+		    font-size: 1.1rem;
+		    padding-left: 50px;
+		    vertical-align: middle;
+		    line-height: 40px;
+		}
+		
+		ul>li:nth-child(1) {
+		    padding-right: 360px
+		}
+
+		ul>p{
+			color:red;font-size: 1rem
+		}
+		
+		ul>li>p {
+		    font-size: 1rem;
+		}
+		
+		.area {
+		    background: url(../img/area.png) no-repeat;
+		    background-size: 25px 25px;
+		    background-position: left 8px;
+		}
+		
+		.telephone {
+		    background: url(../img/telephone.png) no-repeat;
+		    background-size: 25px 25px;
+		    background-position: left 8px;
+		}
+		
+		.time {
+		    background: url(../img/time.png) no-repeat;
+		    background-size: 25px 25px;
+		    background-position: left 8px;
+		}
+		
+		.car {
+		    background: url(../img/car.png) no-repeat;
+		    background-size: 25px 25px;
+		    background-position: left 8px;
+		}
+		/*地图遮挡换行*/
+		
+		.car>p:nth-child(1) {
+		    padding-right: 360px !important;
+		}
+		
+		.car>p {
+		    padding-right: 50px;
+		}
+		/*地图*/
+		
+		.map {
+		    position: absolute;
+		    width: 300px;
+		    height: 200px;
+		    top: 0;
+		    right: 50px;
+		    overflow: hidden;
+		    border: 1px solid #eb6129;
+		}
+		.map>img{
+		    cursor: pointer;
+		}
+		.map .scale_jing {
+		    position: absolute;
+		    width: 30px;
+		    bottom: 5px;
+		    right: 10px;
+		}
+		
+		#mapcontainer {
+		    position: fixed;
+		    width: 1000px;
+		    height: 620px;
+		    margin: auto;
+		    left: 0;
+		    top: 0;
+		    right: 0;
+		    bottom: 0;
+		    background: white;
+		    border: 1px solid #eb6129;
+		    display: none
+		}
+		
+		#mapcontainer #close {
+		    position: absolute;
+		    width: 25px;
+		    height: 25px;
+		    right: 20px;
+		    top: 20px;
+		}
+		
+		#close>img {
+		    cursor: pointer;
+		}
+		
+		#mapcontainer>div {
+		    width: 100%;
+		    height: 500px;
+		}
+		
+		#mapcontainer>p {
+		    line-height: 40px;
+		    font-size: 1rem;
+		    padding-left: 20px;
+		}
+		/*侧栏导航*/
+		
+		.container.con #nav {
+		    position: fixed;
+		    top: 50%;
+		    left: 0;
+		    left: -webkit-calc( 10% - 58px );
+		    left: calc( 10% - 58px );
+		    -webkit-transform: translateY(-50%);
+		    -ms-transform: translateY(-50%);
+		    -o-transform: translateY(-50%);
+		    transform: translateY(-50%);
+		}
+		
+		.container.con #nav a {
+		    display: block;
+		    padding: 20px;
+		    color: white;
+		    text-align: center;
+		    background: #eb6129;
+		    font-size: 1.2rem;
+			opacity: 0;
+		}
+		
+		#nav a+a {
+		    margin-top: 2px;
+		}
+
+
+		
+		@media screen and (max-width: 700px) {
+		    .container {
+		        width: 100%;
+		        min-width: 100% !important;
+		        margin-left: 0;
+		        cursor: pointer;
+		    }
+		    .header {
+		        /*border: 1px solid blue;*/
+		        font-size: 1rem;
+		        font-weight: bolder;
+		        color: white;
+		        margin-left: 0;
+		        margin-bottom: 5px;
+		        padding: 10px;
+		        
+		    }
+		    .header::before{
+				content: '';
+				position: absolute;
+				display: block;
+				width: 0;
+				height: 0;
+				top: 10px;
+				left: -27px;
+				z-index: 0;
+
+				border-top: 11px solid #f6ad3a;
+				border-bottom: 11px solid #f6ad3a;
+				border-left: 9px solid transparent;
+				border-right: 18px solid #f6ad3a
+			}
+
+			.header::after{
+				content: '';
+				position: absolute;
+				display: block;
+				width: 0;
+				height: 0;
+				top: 10px;
+				right: -27px;
+				z-index: 0;
+				border-top: 11px solid #f6ad3a;
+				border-bottom: 11px solid #f6ad3a;
+				border-left: 18px solid #f6ad3a;
+				border-right: 9px solid transparent
+			}
+		    .item {
+		        background: #f3f1dd;
+		        padding: 10px 0 10px 0;
+		        margin: 5px 0;
+		        text-align: center;
+		    }
+		    .item .content{
+		    	text-align: left;
+		    }
+		    ul>li {
+		        font-size: .8rem;
+		        padding-left: 30px;
+		        vertical-align: middle;
+		        line-height: 18px;
+		        margin-bottom: 10px
+		    }
+		    ul>li:nth-child(1) {
+		        padding-right: 10px
+		    }
+		    ul>p{ /*教学点提示*/
+				color:red;
+				padding-left: 20px;
+				font-size: .6rem
+			}
+		    ul>li>p {
+		        font-size: .6rem;
+		        margin-bottom: 5px;
+		    }
+		    .area,
+		    .telephone,
+		    .time,
+		    .car {
+		        background-size: 15px 15px;
+		        background-position: left top;
+		    }
+		    .car {
+		        line-height: 16px !important;
+		    }
+		    /*地图遮挡换行*/
+		    .car>p:nth-child(1) {
+		        padding-right: 10px !important;
+		    }
+		    .car>p {
+		        padding-right: 10px;
+		    }
+		    .map {
+		        width: 50px;
+		        height: 50px;
+		        top: 44px;
+		        border: 0;
+		    }
+		    .map>img {
+		        display: none;
+		    }
+		    .map>div {
+		        position: absolute;
+		        top: 0;
+		        left: 0
+		    }
+		    .map>div img {
+		        /*查看地图导航*/
+		        width: 100%
+		    }
+		    /*侧栏导航*/
+		    #nav {
+		        position: fixed;
+		        top: 0;
+		        left: 0;
+		        margin-left: -75px;
+		        -webkit-transform: translateY(0);
+		        -ms-transform: translateY(0);
+		        -o-transform: translateY(0);
+		        transform: translateY(0);
+		    }
+		    #nav a {
+		        display: block;
+		        width: 66px;
+		        padding: 0;
+		        color: white;
+		        text-align: center;
+		        background: #eb6129;
+		        font-size: .8rem;
+		        border-bottom: 1px solid rgba(246,181,142,.5);
+		    }
+		    #nav a+a {
+		        margin-top: 0;
+		    }
+
+
+		    /*球*/
+
+		    .ball-scale-multiple {
+	            position: fixed !important;
+	            left: -5px;
+	            top: 48%;
+	            cursor: pointer;
+	        }
+	        .ball-scale-multiple >div{
+	        	cursor: pointer;
+	        }
+	        
+	        .ball-scale-multiple > div:nth-child(2) {
+	            -webkit-animation-delay: 0.2s;
+	            animation-delay: 0.2s;
+	        }
+	        
+	        .ball-scale-multiple > div:nth-child(3) {
+	            -webkit-animation-delay: 0.4s;
+	            animation-delay: 0.4s;
+	        }
+	        
+	        
+	        .ball-scale-multiple > div {
+	            background-color: #eb6129 !important;
+	            width: 15px;
+	            height: 15px;
+	            border-radius: 100%;
+	            margin: 2px;
+	            -webkit-animation-fill-mode: both;
+	            animation-fill-mode: both;
+	            position: absolute;
+	            left: 0px;
+	            top: 0px;
+	            opacity: 0;
+	            margin: 0;
+	            width: 50px;
+	            height: 50px;
+	            -webkit-animation: ball-scale-multiple 2s 0s linear infinite;
+	            animation: ball-scale-multiple 2s 0s linear infinite;
+	        }
+
+	        @-webkit-keyframes ball-scale-multiple {
+			  0% {
+			    -webkit-transform: scale(0);
+			            transform: scale(0);
+			    opacity: 0; }
+
+			  5% {
+			    opacity: 1; }
+
+			  100% {
+			    -webkit-transform: scale(1);
+			            transform: scale(1);
+			    opacity: 0; } }
+
+			@keyframes ball-scale-multiple {
+			  0% {
+			    -webkit-transform: scale(0);
+			            transform: scale(0);
+			    opacity: 0; }
+
+			  5% {
+			    opacity: 1; }
+
+			  100% {
+			    -webkit-transform: scale(1);
+			            transform: scale(1);
+			    opacity: 0; } }
+		}
+
+		/*侧栏导航*/
+		@-webkit-keyframes fadeInDown {
+          from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -200%, 0);
+            transform: translate3d(0, -200%, 0);
+          }
+
+          to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+          }
+        }
+
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -200%, 0);
+            transform: translate3d(0, -200%, 0);
+          }
+
+          to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+          }
+        }
+
+        @-webkit-keyframes fadeInUp {
+          from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 200%, 0);
+            transform: translate3d(0, 200%, 0);
+          }
+
+          to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 200%, 0);
+            transform: translate3d(0, 200%, 0);
+          }
+
+          to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+          }
+        }
+        
+        .container.con #nav a:nth-child(1){
+            -webkit-animation: fadeInDown .5s .8s ease forwards;
+            -o-animation: fadeInDown .5s .8s ease forwards;
+            animation: fadeInDown .5s .8s ease forwards;
+        }
+        .container.con #nav a:nth-child(2){
+            -webkit-animation: fadeInDown .5s .6s ease forwards;
+            -o-animation: fadeInDown .5s .6s ease forwards;
+            animation: fadeInDown .5s .6s ease forwards;
+        }
+        .container.con #nav a:nth-child(3){
+            -webkit-animation: fadeInDown .5s .4s ease forwards;
+            -o-animation: fadeInDown .5s .4s ease forwards;
+            animation: fadeInDown .5s .4s ease forwards;
+        }
+        .container.con #nav a:nth-child(4){
+            -webkit-animation: fadeInDown .5s .2s ease forwards;
+            -o-animation: fadeInDown .5s .2s ease forwards;
+            animation: fadeInDown .5s .2s ease forwards;
+        }
+        .container.con #nav a:nth-child(5){
+            -webkit-animation: fadeInLeft .5s  ease forwards;
+            -o-animation: fadeInLeft .5s  ease forwards;
+            animation: fadeInLeft .5s  ease forwards;
+        }
+        .container.con #nav a:nth-child(6){
+            -webkit-animation: fadeInUp .5s .2s ease forwards;
+            -o-animation: fadeInUp .5s .2s ease forwards;
+            animation: fadeInUp .5s .2s ease forwards;
+        }
+        .container.con #nav a:nth-child(7){
+            -webkit-animation: fadeInUp .5s .4s ease forwards;
+            -o-animation: fadeInUp .5s .4s  ease forwards;
+            animation: fadeInUp .5s .4s  ease forwards;
+        }
+        .container.con #nav a:nth-child(8){
+            -webkit-animation: fadeInUp .5s .6s ease forwards;
+            -o-animation: fadeInUp .5s .6s  ease forwards;
+            animation: fadeInUp .5s .6s  ease forwards;
+        }
+        .container.con #nav a:nth-child(9){
+            -webkit-animation: fadeInUp .5s .8s ease forwards;
+            -o-animation: fadeInUp .5s .8s  ease forwards;
+            animation: fadeInUp .5s .8s  ease forwards;
+        }

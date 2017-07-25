@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script type="text/javascript">
+	function factorial(x){
+
+if(x<0)throw new Error("x值不能为负值");
+
+for(var f=1;x>1;f*=x,x--) /*empty*/;
+return f;
+
+	};
+
+
+
+try{
+//要求用户输入一个数字	
+var n= new Number(prompt("请输入一个正确的数字"));
+//假设输入数字是合法的，计算这个数字的阶乘。
+var f =factorial(n);
+//显示这个数字的结果
+alert(n+"1="+f);
+}catch(e){
+//如果不合法。 弹出错误
+alert(e)
+
+}
+
+
+
+   function lowerStrSon(str){
+        return str.replace(/[A-Z]/g,function(martch,offset,str){
+        	debugger;
+        	console.log(martch)
+            return "-"+martch.toLowerCase();
+        });
+       }
+
+       console.log(lowerStrSon("borderBottomWidth"));
+</script>
